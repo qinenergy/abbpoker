@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+
+<title>Poker ABB</title>
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+<link rel="stylesheet" type="text/css" href="style.css">
+<style>
+.round-button {
+	width:25%;
+}
+.round-button-circle {
+	width: 100%;
+	height:0;
+	padding-bottom: 100%;
+    border-radius: 50%;
+	border:10px solid #cfdcec;
+    overflow:hidden;
+    
+    background: #4679BD; 
+    box-shadow: 0 0 3px gray;
+}
+.round-button-circle:hover {
+	background:#30588e;
+}
+.round-button a {
+    display:block;
+	float:left;
+	width:100%;
+	padding-top:50%;
+    padding-bottom:50%;
+	line-height:1em;
+	margin-top:-0.5em;
+    
+	text-align:center;
+	color:#e2eaf3;
+    font-family:Verdana;
+    font-size:1.2em;
+    font-weight:bold;
+    text-decoration:none;
+}
+</style>
+</head>
+<body>
+
+<div id="content">
+
+  <audio autoplay loop id="standard">
+    <source src="https://archive.org/download/KingdomOfNorway-NationalAnthem/na.norway_64kb.mp3">
+  </audio>
+
+  <audio id="allin">
+    <source src="http://www.mariomayhem.com/downloads/sound_tracks/Super_Mario_Bros._1/04-castle.mp3">
+  </audio>
+
+  <div class="round-button"><div class="round-button-circle" onclick="button_pressed()"><a>ALL IN</a></div></div>
+  <button onclick="document.getElementById('standard').pause();document.getElementById('allin').pause();">Mute</button>
+
+  <script>
+  var state = 0;
+  function button_pressed() {
+    window.state = 1 - window.state;
+    if (window.state == 0){
+      document.getElementById('allin').pause();
+      document.getElementById('standard').play();
+    } else{
+      document.getElementById('standard').pause();
+      document.getElementById('allin').currentTime = 0;
+      document.getElementById('allin').play();
+    }
+  }
+  </script>
+
+</div>
+
+</body>
+</html>
+
